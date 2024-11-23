@@ -27,7 +27,7 @@ public class Server {
 
     private final AngryDataBase angryDataBase;
 
-    public final String IP_ADDRESS;
+    public final String IP_ADDRESS; //get from .env
     private final int MAX_USERS = 100;
 
 
