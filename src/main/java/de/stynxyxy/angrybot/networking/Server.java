@@ -27,7 +27,7 @@ public class Server {
 
     private AngryDataBase angryDataBase;
 
-    public final String IP_ADDRESS = "192.168.178.111";
+    public final String IP_ADDRESS = "";
     private final int MAX_USERS = 100;
 
 
