@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class StartBotRunnable implements Runnable{
     private volatile Bot bot;
-    private String token;
+    private final String token;
     public StartBotRunnable(String Token) {
         this.token = Token;
     }

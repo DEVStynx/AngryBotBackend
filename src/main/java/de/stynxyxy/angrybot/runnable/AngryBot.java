@@ -7,9 +7,9 @@ import de.stynxyxy.angrybot.networking.Server;
 public class AngryBot {
 
 
-    private Bot bot;
-    private Server server;
-    private AngryDataBase dataBase;
+    private final Bot bot;
+    private final Server server;
+    private final AngryDataBase dataBase;
 
     public AngryBot(Bot bot, Server server, AngryDataBase dataBase) {
         this.bot = bot;

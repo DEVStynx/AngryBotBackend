@@ -25,16 +25,17 @@ public class Server {
 
 
 
-    private AngryDataBase angryDataBase;
+    private final AngryDataBase angryDataBase;
 
-    public final String IP_ADDRESS = "192.168.178.111";
+    public final String IP_ADDRESS;
     private final int MAX_USERS = 100;
 
 
-    private Bot bot;
-    public Server(Bot bot, AngryDataBase dataBase) {
+    private final Bot bot;
+    public Server(Bot bot, AngryDataBase dataBase, String adress) {
         this.bot = bot;
         this.angryDataBase = dataBase;
+        this.IP_ADDRESS = adress;
     }
     public Bot getBot() {
         return bot;

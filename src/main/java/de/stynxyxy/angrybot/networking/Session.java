@@ -247,7 +247,7 @@ public class Session implements Runnable {
     public void ForwardSystemInformation(TextChannel channel) {
         Thread InformationRecThread = new Thread(() -> {
             boolean recvd = false;
-            while (recvd == false) {
+            while (!recvd) {
                 if (!this.IPAdress.isEmpty() && !this.DeviceName.isEmpty() && !this.OperatingSystem.isEmpty() && !this.OperatingSystemVersion.isEmpty()) {
                     SendInformationsInChannel(channel);
 
@@ -266,7 +266,7 @@ public class Session implements Runnable {
                 System.out.println("OS Name empty: "+this.OperatingSystem.isEmpty()+"v: "+this.OperatingSystem);
                  */
                 try {
-                    TimeUnit.MILLISECONDS.sleep(10l);
+                    TimeUnit.MILLISECONDS.sleep(10L);
                 } catch (InterruptedException e) {}
 
             }

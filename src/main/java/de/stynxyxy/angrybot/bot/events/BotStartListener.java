@@ -26,7 +26,7 @@ public class BotStartListener extends ListenerAdapter {
             this.bot.deleteSessionsInServer(guild);
             List<Role> debugRoles = guild.getRolesByName("DebugRole",true);
             if (debugRoles.isEmpty()) {
-                guild.createRole().setName("DebugRole").setColor(Color.GREEN).setMentionable(false).setPermissions(1l).queue();
+                guild.createRole().setName("DebugRole").setColor(Color.GREEN).setMentionable(false).setPermissions(1L).queue();
             }
         }
 

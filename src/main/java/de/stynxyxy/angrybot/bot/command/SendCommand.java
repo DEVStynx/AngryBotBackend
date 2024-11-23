@@ -13,7 +13,7 @@ import net.dv8tion.jda.api.interactions.commands.OptionType;
 public class SendCommand extends Command {
     Server server;
     public SendCommand(Server server) {
-        super("send", "Sends A Command to the Selected Session and replies with the Answer!",new CommandOption(OptionType.STRING,"command","The Command to send!"));
+        super("send", "Sends A Command to the Selected Session and replies with the Answer!",new CommandOption(OptionType.STRING,"command","The Command to send!",true));
         this.server = server;
     }
 

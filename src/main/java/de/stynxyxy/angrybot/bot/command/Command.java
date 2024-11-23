@@ -10,7 +10,7 @@ import java.util.*;
 
 
 public abstract class Command {
-    private CommandData commandData;
+    private final CommandData commandData;
     private CommandOption[] commandOptions;
     public Command(String name, String description) {
         this.commandData = Commands.slash(name,description);

@@ -19,8 +19,10 @@ public class Main {
         String SQLURL = dotEnv.get("SQLDATABASEURL");
         String SQLUSER = dotEnv.get("SQLDATABASEUSERNAME");
         String SQLPASSWORD = dotEnv.get("SQLDATABASEPASSWORD");
+        String ADRESS = dotEnv.get("IPADRESS");
 
-        AngryBot angryBot = runThreads(BotToken,SQLURL,SQLUSER,SQLPASSWORD);
+
+        AngryBot angryBot = runThreads(BotToken,SQLURL,SQLUSER,SQLPASSWORD,ADRESS);
         Bot bot = angryBot.getBot();
         Server server = angryBot.getServer();
 
@@ -28,7 +30,8 @@ public class Main {
         bot.initializeWithServer(server);
     }
 
-    private static AngryBot runThreads(String botToken, String SQLURL, String SQLUSER, String SQLPASSWORD) throws InterruptedException {
+    private static AngryBot runThreads(String botToken, String SQLURL, String SQLUSER, String SQLPASSWORD, String ADRESS) throws InterruptedException {
+
         // Bot initialisieren
         StartBotRunnable startBotRunnable = new StartBotRunnable(botToken);
         Thread botThread = new Thread(startBotRunnable);
@@ -37,7 +40,7 @@ public class Main {
         Bot bot = startBotRunnable.getBot();
         AngryDataBase dataBase = new AngryDataBase(SQLURL,SQLUSER,SQLPASSWORD);
         // Server initialisieren
-        StartServerRunnabble startServerRunnable = new StartServerRunnabble(bot, dataBase);
+        StartServerRunnabble startServerRunnable = new StartServerRunnabble(bot, dataBase,ADRESS);
         startServerRunnable.run();
         Server server = startServerRunnable.getServer();
 
