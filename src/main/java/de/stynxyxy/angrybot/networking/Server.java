@@ -23,8 +23,6 @@ public class Server {
     public HashMap<Integer,Channel> CurrentRespondingCommandChannels = new HashMap<>();
     private boolean running = true;
 
-
-
     private final AngryDataBase angryDataBase;
 
     public final String IP_ADDRESS; //get from .env
