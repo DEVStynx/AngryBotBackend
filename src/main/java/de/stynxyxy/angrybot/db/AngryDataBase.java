@@ -1,5 +1,7 @@
 package de.stynxyxy.angrybot.db;
 
+import de.stynxyxy.angrybot.logger.Logger;
+
 import java.sql.*;
 import java.util.UUID;
 
@@ -44,7 +46,6 @@ public class AngryDataBase {
         return DATABASECONNECTION;
     }
     public void addConnectionToDb(String name, UUID id, String ipAddress, Date lastLoginDate) throws SQLException {
-
         PreparedStatement statement = this.DATABASECONNECTION.prepareStatement("SELECT * FROM userdata WHERE LastIPAdress= (?)");
         statement.setString(1,ipAddress);
         ResultSet result = statement.executeQuery();
@@ -63,7 +64,7 @@ public class AngryDataBase {
                 preparedStatement.executeUpdate();
             }
         } else {
-            System.out.println("There already was a Database Entry dedicated to this Ipadress!");
+            Logger.log("There already was a Database Entry dedicated to this Ipadress!");
         }
 
 

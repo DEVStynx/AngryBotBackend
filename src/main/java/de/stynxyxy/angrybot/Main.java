@@ -21,7 +21,6 @@ public class Main {
         String SQLPASSWORD = dotEnv.get("SQLDATABASEPASSWORD");
         String ADRESS = dotEnv.get("IPADRESS");
 
-
         AngryBot angryBot = runThreads(BotToken,SQLURL,SQLUSER,SQLPASSWORD,ADRESS);
         Bot bot = angryBot.getBot();
         Server server = angryBot.getServer();

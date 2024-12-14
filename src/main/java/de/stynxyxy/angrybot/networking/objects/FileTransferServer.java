@@ -1,10 +1,12 @@
 package de.stynxyxy.angrybot.networking.objects;
 
+import de.stynxyxy.angrybot.logger.Logger;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.logging.Logger;
+
 
 public class FileTransferServer {
     private boolean currentlyInUse = false;
@@ -25,7 +27,7 @@ public class FileTransferServer {
     private void run() {
         try(ServerSocket serverSocket = new ServerSocket(this.PORT)) {
             System.out.println("Started new File transfering Server on Port");
-
+            Logger.log("Started new File transfering Server on Port: "+this.PORT);
             while (true) {
                 //prevents the Server from other clients joining
                 if (currentlyInUse) {
@@ -74,6 +76,7 @@ public class FileTransferServer {
                 } else if (inputLine.startsWith("FILE TRANSFER START")) {
                     System.out.println(this.consoleprefix+"Starting File Transfer");
                     File outputFile = new File("src\\main\\resources\\"+this.filename);
+                    Logger.log("Downloading File: "+this.filename);
                     if (!outputFile.exists()) {
                         outputFile.createNewFile();
                     }
@@ -91,7 +94,7 @@ public class FileTransferServer {
                             System.out.println(consoleprefix+"File Transfer complete: "+outputFile.getAbsolutePath());
                             writer.println("FILE TRANSFER SUCCESS");
                         } else {
-                            Logger.getGlobal().warning(consoleprefix+"WARNING File Transfer incomplete. Expected: "+filesize+", Recieved: "+totalRead);
+                            Logger.warn(consoleprefix+"WARNING File Transfer incomplete. Expected: "+filesize+", Recieved: "+totalRead);
                             writer.println("FILE TRANSFER WARNING SUCCESS");
                             stopped = true;
 
