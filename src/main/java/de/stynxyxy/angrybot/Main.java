@@ -14,7 +14,7 @@ public class Main {
         /**
          * Loading Environment Variables
          */
-        Dotenv dotEnv = Dotenv.configure().directory("C:\\Users\\jonas\\Desktop\\Development\\java\\AngryBot\\AngryBotBackend\\src\\main\\resources\\.env").load();
+        Dotenv dotEnv = Dotenv.configure().directory("src\\main\\resources\\.env").load();
         String BotToken = dotEnv.get("BOT_TOKEN");
         String SQLURL = dotEnv.get("SQLDATABASEURL");
         String SQLUSER = dotEnv.get("SQLDATABASEUSERNAME");
